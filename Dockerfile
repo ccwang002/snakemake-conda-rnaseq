@@ -14,4 +14,5 @@ RUN git clone https://ccwang002@bitbucket.org/ccwang002/snakemake.git /opt/snake
     cd ~ && \
     rm -rf /opt/snakemake
 
-RUN pip install --no-cache-dir google-cloud-storage
+RUN pip install google-cloud-storage && \
+    rm -rf ~/.cache/pip
