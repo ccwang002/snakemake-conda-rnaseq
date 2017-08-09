@@ -10,6 +10,7 @@ RUN conda install -y python=3.6 nomkl stringtie "samtools<1.5" hisat2 snakemake 
 
 RUN git clone https://ccwang002@bitbucket.org/ccwang002/snakemake.git /opt/snakemake && \
     cd /opt/snakemake && \
+    git checkout custom-docker-image && \
     python setup.py install && \
     cd ~ && \
     rm -rf /opt/snakemake
