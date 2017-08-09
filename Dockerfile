@@ -1,10 +1,14 @@
-FROM lbwang/alpine-glibc-conda
+FROM lbwang/debian-conda
+
+ARG DEBIAN_FRONTEND=noninteractive
 
 ## Install git
-RUN apk add --no-cache git
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends git \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
 
 RUN conda install -y python=3.6 nomkl stringtie "samtools<1.5" hisat2 snakemake && \
-    # conda remove mkl mkl-service && \
     conda uninstall -y snakemake && \
     conda clean -y --all
 
