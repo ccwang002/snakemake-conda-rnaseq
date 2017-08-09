@@ -3,7 +3,8 @@ FROM lbwang/alpine-glibc-conda
 ## Install git
 RUN apk add --no-cache git
 
-RUN conda install -y python=3.6 stringtie "samtools<1.5" hisat2 snakemake && \
+RUN conda install -y python=3.6 nomkl stringtie "samtools<1.5" hisat2 snakemake && \
+    conda remove mkl mkl-service && \
     conda uninstall -y snakemake && \
     conda clean -y --all
 
