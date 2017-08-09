@@ -16,3 +16,7 @@ RUN git clone https://ccwang002@bitbucket.org/ccwang002/snakemake.git /opt/snake
 
 RUN pip install google-cloud-storage && \
     rm -rf ~/.cache/pip
+
+# Fix Response not a context manager
+RUN conda install -y "requests >= 2.18.0" && \
+    conda clean -y --all
