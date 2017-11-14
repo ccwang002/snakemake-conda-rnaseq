@@ -12,7 +12,7 @@ RUN conda install -y python=3.6 nomkl stringtie samtools hisat2 snakemake && \
     conda uninstall -y snakemake && \
     conda clean -y --all
 
-RUN pip install google-cloud-storage && \
+RUN pip install google-cloud-storage kubernetes && \
     rm -rf ~/.cache/pip
 
 # Fix Response not a context manager
