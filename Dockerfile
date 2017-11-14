@@ -15,10 +15,6 @@ RUN conda install -y python=3.6 nomkl stringtie samtools hisat2 snakemake && \
 RUN pip install google-cloud-storage kubernetes && \
     rm -rf ~/.cache/pip
 
-# Fix Response not a context manager
-RUN conda install -y "requests >= 2.18.0" && \
-    conda clean -y --all
-
 # Set up Google Cloud SDK
 RUN export CLOUD_SDK_REPO="cloud-sdk-stretch" && \
     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" > /etc/apt/sources.list.d/google-cloud-sdk.list && \
